@@ -1,0 +1,7 @@
+rent = int(input())
+cake_price = float (rent * 0.20)
+x = float(cake_price * 0.45)
+drinks = float(cake_price - x)
+animator = float(rent / 3)
+total_sum = float(cake_price + drinks + animator)
+print(total_sum + rent)
