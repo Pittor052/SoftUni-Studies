@@ -1,7 +1,7 @@
 import re
 
 line = input('Please input the data:\n')
-stats, results = [], []
+results = []
 scoredBelow100, scored100to200, scored200to300, scoredMax, countStudents = 0, 0, 0, 0, 0
 regexFinalScore = r'(\d+$)'
 
