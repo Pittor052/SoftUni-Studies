@@ -6,11 +6,9 @@ scoredBelow100, scored100to200, scored200to300, scoredMax, countStudents = 0, 0,
 regexFinalScore = r'(\d+$)'
 
 while not line == "":
-    if "'''" not in line:
-        stats.append(line)
-        countStudents += 1
-        results.append([item.group() for item in re.finditer(regexFinalScore, stats[countStudents - 1])])
-        results[countStudents - 1] = (int(results[countStudents - 1][0]))
+    countStudents += 1
+    results.append([item.group() for item in re.finditer(regexFinalScore, line)])
+    results[countStudents - 1] = (int(results[countStudents - 1][0]))
     line = input()
 
 examType = input('Please input the exam name (example: Fundamentals Final Exam ): ')
