@@ -1,18 +1,23 @@
 import re
 
-line = input('Please input the data:\n')
+
 results = []
 scoredBelow100, scored100to200, scored200to300, scoredMax, countStudents = 0, 0, 0, 0, 0
 regexFinalScore = r'(\d+$)'
 
-while not line == "":
-    countStudents += 1
-    results.append([item.group() for item in re.finditer(regexFinalScore, line)])
-    results[countStudents - 1] = (int(results[countStudents - 1][0]))
-    line = input()
+input('Please paste your data in the file named input.txt then return here and press ENTER!')
+
+with open('input.txt') as file:
+    for line in file:
+        stat = [item.group() for item in re.finditer(regexFinalScore, line)]
+        if stat:
+            countStudents += 1
+            results.append(stat)
+            results[countStudents - 1] = (int(results[countStudents - 1][0]))
 
 examType = input('Please input the exam name (example: Fundamentals Final Exam ): ')
 examDate = input('Please input the exam date (example: 14/08/2021): ')
+
 print(f'\n{examType}')
 print(f'Exam date: {examDate} \n'
       f'Statistic for languages: '
@@ -38,11 +43,13 @@ print(f' * {(scoredBelow100 / countStudents) * 100:.2f}% ({scoredBelow100} stude
       f' * {(scored200to300 / countStudents) * 100:.2f}% ({scored200to300} students) got score '
       f'between 200 and 300 total points!\n'
       f' * {(scoredMax / countStudents) * 100:.2f}% ({scoredMax} students) got maximum total points!\n')
+
 answer = input('Do you wish to view more details about the exam (Y/N)? ').upper().split()
+
 if (len(answer) == 0) or (('Y' or 'YES') in answer):
     for i in set(results):
         print(f' * {results.count(i)} student/s got total score of {i}')
-
+input('\nFor EXIT press ENTER!')
 # # EXAMPLE FOR DATA INPUT
 # 1	dasdsad123	Ivan Ivanov	100	-	-	-	-	100	-	-	-	-	-	-	-	-	-	100	-	-	90
 # 2	Asds SAS	Ivan Ivanov	100	-	-	-	-	100	-	-	-	-	-	-	-	-	-	100	-	-	100

@@ -1,0 +1,6 @@
+# EXAMPLE FOR DATA INPUT
+1	dasdsad123	Ivan Ivanov		-	90
+2	Asds SAS	Ivan Ivanov		-	100
+3	sadas	Ivan Ivanov			-	200
+4	1233	Ivan Ivanov			-	300
+5	asd_!123	Ivan Ivanov		-	300
