@@ -1,0 +1,17 @@
+text = input()
+
+parentheses = []
+
+for i in range(len(text)):
+
+    if text[i] == "(":
+        parentheses.append(i)
+
+    elif text[i] == ")":
+
+        start_index = parentheses.pop()
+
+        print(text[start_index:i + 1])
+# 1 + (2 - (2 + 3) * 4 / (3 + 1)) * 5
+# (((
+#  )))
